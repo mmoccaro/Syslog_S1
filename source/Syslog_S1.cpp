@@ -15,8 +15,8 @@
 #include<iostream>
 #include<gtk/gtk.h>
 
-//Destroy Function
-void exit( GtkWidget *widget,gpointer   data )
+//Exit Function
+void destroy( GtkWidget *widget,gpointer   data )
 {
    gtk_main_quit ();
 }
@@ -30,7 +30,7 @@ int main(int argc, char **argv)
 	window = gtk_window_new (GTK_WINDOW_TOPLEVEL);
 
 	//Connect the function to exit the window.
-	g_signal_connect (window, "exit", G_CALLBACK (exit), NULL);
+	g_signal_connect (window, "destroy", G_CALLBACK (destroy), NULL);
 
 	//Show window
 	gtk_widget_show_all(window); 
